@@ -1,0 +1,76 @@
+<div class="container">
+  <h1 class="heading text-center bg-info p-5">
+    Asteroid - Neo Stats Application
+  </h1>
+  <form #rangePost="ngForm" (ngSubmit)="onFormSubmit(rangePost.value)">
+    <div class="row p-5">
+      <div class="col-md-4 col-sm-4">
+        <label for="">Start Date:</label>
+        <input
+          type="date"
+          name="StartDate"
+          class="form-control"
+          value="name"
+          id=""
+          ngModel
+        />
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <label for="">End Date:</label>
+        <input
+          type="date"
+          name="Enddate"
+          id=""
+          class="form-control"
+          value="name"
+          ngModel
+        />
+      </div>
+      <div class="col-md-4 col-sm-4 text-center">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+    </div>
+    <div class="row p-5">
+      <div class="col-md-6">
+        <p class="para" style="font-size: 18px">Fastest Asteroid in km/h :</p>
+        <label for="">ID:</label>
+        <input type="text" class="form-control" value="{{ speeds.id }}" />
+
+        <label for="">Speed km/h :</label>
+        <input type="text" class="form-control" value="{{ speeds.speed }}" />
+        <div class="row-5 mt-3">
+          <p class="para" style="font-size: 18px">
+            total number of asteroids for each day of the given date range:
+          </p>
+          <div style="height: 600px; width: 500px">
+            <canvas id="MyChart">{{ chart }}</canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p class="para" style="font-size: 18px">
+          Average Size of the Asteroids in kilometres
+        </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Min</th>
+              <th scope="col">Max</th>
+              <th scope="col">Avarage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let avarage of avarages">
+              <td>{{ avarage.id }}</td>
+              <td>{{ avarage.min }}</td>
+              <td>{{ avarage.max }}</td>
+              <td>{{ avarage.avarage }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+  <div class="container"></div>
+</div>
